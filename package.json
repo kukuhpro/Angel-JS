@@ -1,0 +1,38 @@
+{
+  "name": "etalastic",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "mocha -r should -R spec",
+    "migrate": "db-migrate --config ./env.json -e db"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "istanbul": "latest",
+    "jshint": "^2.8.0",
+    "laravel-elixir-imagemin": "^0.2.3",
+    "mocha": "latest",
+    "should": "latest",
+    "superagent": "latest"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "caminte": "^0.2.6",
+    "cookie-parser": "~1.3.5",
+    "db-migrate": "^0.9.23",
+    "debug": "~2.2.0",
+    "ejs": "^1.0.0",
+    "ejs-locals": "^1.0.2",
+    "express": "~4.13.1",
+    "express-session": "^1.13.0",
+    "laravel-elixir": "^3.1.1",
+    "mongodb": "^2.1.4",
+    "morgan": "~1.6.1",
+    "mysql": ">= 2.0.0",
+    "passport": "^0.3.2",
+    "serve-favicon": "~2.3.0",
+    "subdomain": "^1.2.0",
+    "underscore": "latest"
+  }
+}

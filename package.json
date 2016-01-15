@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "test": "mocha -r should -R spec",
-    "migrate": "db-migrate --config ./env.json -e db"
+    "migrate": "db-migrate --config ./env.json -e db",
+    "migrate-multi": "db-migrate -e db"
   },
   "devDependencies": {
     "gulp": "^3.8.8",
@@ -26,11 +27,13 @@
     "ejs-locals": "^1.0.2",
     "express": "~4.13.1",
     "express-session": "^1.13.0",
+    "expressgroup": "^0.1.4",
     "laravel-elixir": "^3.1.1",
     "mongodb": "^2.1.4",
     "morgan": "~1.6.1",
     "mysql": ">= 2.0.0",
     "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "serve-favicon": "~2.3.0",
     "subdomain": "^1.2.0",
     "underscore": "latest"

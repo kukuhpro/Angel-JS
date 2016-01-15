@@ -9,6 +9,7 @@ var bodyParser   = require('body-parser');
 var routes       = require('../app/routes');
 var subdomain    = require('subdomain');
 var session      = require('express-session');
+var _            = require("underscore");
 
 module.exports = function (app, express) {
 	var ejsLocal = require('ejs-locals');

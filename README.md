@@ -5,8 +5,8 @@ This starter created not only for solving right structure for single application
 
 
 These structures application are typically two solutions for solving the multitenancy problem : 
-1.Isolated Approach: Separate Databases. Each tenant has it’s own database (it separated within each subdomain).
-2.Shared Approach: Shared Database, Shared Schema. All tenants share the same database and schema. There is a main tenant-table, where all other tables have a foreign key pointing to.
+1. Isolated Approach: Separate Databases. Each tenant has it’s own database (it separated within each subdomain).
+2. Shared Approach: Shared Database, Shared Schema. All tenants share the same database and schema. There is a main tenant-table, where all other tables have a foreign key pointing to.
 
 
 

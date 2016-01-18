@@ -11,6 +11,14 @@ These structures application are typically two solutions for solving the multite
 2. Shared Approach: Shared Database, Shared Schema. All tenants share the same database and schema. There is a main tenant-table, where all other tables have a foreign key pointing to.
 
 
+#### Tools
+* Gulp 
+* db-migrate
+* Caminte
+* Mocha
+
+
+
 
 
 

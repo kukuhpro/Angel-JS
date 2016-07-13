@@ -7,7 +7,7 @@ Angel is not a framework, is a Express 4 Bootstrap Starter.
    ```
    $ db-migrate --config ./config/client/subdomain.json -e db up
    ```
-##### 3. run on your url http://subdomain.etalastic.com
+##### 3. run on your url http://subdomain.baseurl.com
 
 ### Migration
 #### creating migration

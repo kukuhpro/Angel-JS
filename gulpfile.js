@@ -24,9 +24,7 @@ elixir.config.images = {
 
 
 elixir(function(mix) {
-    mix.sass(['site.scss'], 'public/css/site.min.css');
-    mix.imagemin({
-        interlaced: true
-    });
+    mix.styles([
+            'style.css',
+        ], 'public/style.css');
 });
-

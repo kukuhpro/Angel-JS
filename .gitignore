@@ -1,3 +1,4 @@
-env.json
-*.log
 node_modules
+.env.json
+*.log
+/public/doc

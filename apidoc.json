@@ -1,0 +1,7 @@
+{
+  "name": "Etalastic Api",
+  "version": "1.0.0",
+  "description": "This is documentation for Etalastic API",
+  "title": "Etalastic Mobile Api",
+  "url" : "base_url/api/v1"
+}

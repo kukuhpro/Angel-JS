@@ -1,10 +1,14 @@
+/*jslint node: true */
 "use strict";
 
+/**
+ *  Environment loader
+ **/
+
 module.exports = function(clientName) {
-	if (clientName != undefined) {
-		var parsedJson = require('../config/client/' + clientName + '.json');
-	} else {
-		var parsedJson = require('../env.json');
-	}
-	return parsedJson;
+    var parsedJson = require('../.env.json');
+    if (clientName !== undefined) {
+        parsedJson = require('../config/client/' + clientName + '.json');
+    }
+    return parsedJson;
 };

@@ -1,25 +1,26 @@
-![Alt text](http://cdn.javabeat.net/wp-content/uploads/2015/09/expressjs.jpg)
-## This Application is my Starter for using nodejs with express js framework
+## Angel 
+Angel is not a framework, is a Express 4 Bootstrap Starter. 
 
-This starter created not only for solving right structure for single application but also for solving the multitenancy problem.
+### Setting up Single Tenant Application
+##### 1. Create Configuration JSON file in folder .config/client/subdomain.json
+##### 2. Running migration for new instance subdomain 
+   ```
+   $ db-migrate --config ./config/client/subdomain.json -e db up
+   ```
+##### 3. run on your url http://subdomain.etalastic.com
 
+### Migration
+#### creating migration
+```
+$ npm run migrate create added-table-users
+```
+#### Running Migration
+For single tenancy migration
+```
+$ npm run migrate up
+```
 
-These structures application are typically two solutions for solving the multitenancy problem : 
-
-1. Isolated Approach: Separate Databases. Each tenant has it’s own database (it separated within each subdomain).
-
-2. Shared Approach: Shared Database, Shared Schema. All tenants share the same database and schema. There is a main tenant-table, where all other tables have a foreign key pointing to.
-
-
-#### Tools
-* Gulp 
-* db-migrate
-* Caminte
-* Mocha
-
-
-
-
-
-
-
+For multi tenancy migration 
+```
+npm run migrate-multi --config ./config/client/domain.json up
+```

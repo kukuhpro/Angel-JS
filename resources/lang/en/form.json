@@ -1,0 +1,8 @@
+{
+	"textboxname": {
+		"placeholder": "Full Name"
+	},
+	"textboxaddress": {
+		"placeholder": "Address"
+	}
+}

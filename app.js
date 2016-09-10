@@ -29,6 +29,7 @@ var RedisStore   = require('connect-redis')(session);
 // var _         = require("underscore");
 var fsr          = require('file-stream-rotator');
 var Utils        = require('./helpers/utils');
+var Localization = require('./helpers/localization');
 
 // var models    = require('./helpers/models');
 var multer       = require('multer'); // v1.0.5
@@ -48,14 +49,21 @@ app.set('superSecret', env.appKey);
 app.set('views', path.join(__dirname, './app/views'));
 app.engine('ejs', EjsLocal);
 app.set('view engine', 'ejs');
-// app.set('view engine', 'hjs');
-// app.set('layout', 'layout');
+
+
 if (env.appEnv == 'production') {
     app.enable('view cache');
 }
 
 // Set base URL for assets link
 app.locals.baseURL = env.baseUrl;
+
+
+
+// Set Localization Languange
+app.locals.languange = 'en';
+var lang = new Localization(app.locals.languange);
+app.locals.langGet = lang.get;
 
 
 // uncomment after placing your favicon in /public

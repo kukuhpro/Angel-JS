@@ -15,7 +15,7 @@ require('laravel-elixir-imagemin');
 
 elixir.config.sourcemaps = false;
 elixir.config.publicPath = 'public/';
-elixir.config.assetsPath = 'resources/';
+elixir.config.assetsPath = 'resources/assets/';
 
 elixir.config.images = {
     folder: 'images',

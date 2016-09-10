@@ -17,6 +17,18 @@ var Utils = {
         }
         callback(messages);
     },
+    splitNCallObject: function(object, string) {
+        if (~string.indexOf('.')) {
+            var split = string.split('.');
+            var splitLength = split.length;
+            for (var i = 0; i < splitLength; i++) {
+                object = object[split[i]]
+            }
+            return object;
+        } else {
+            return object[string];
+        }
+    },
     extendArray: function(target) {
         var sources = [].slice.call(arguments, 1);
         sources.forEach(function (source) {

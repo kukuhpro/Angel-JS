@@ -17,9 +17,9 @@ var Utils = {
         }
         callback(messages);
     },
-    splitNCallObject: function(object, string) {
-        if (~string.indexOf('.')) {
-            var split = string.split('.');
+    splitNCallObject: function(object, string, separator = '.') {
+        if (~string.indexOf(separator)) {
+            var split = string.split(separator);
             var splitLength = split.length;
             for (var i = 0; i < splitLength; i++) {
                 object = object[split[i]]

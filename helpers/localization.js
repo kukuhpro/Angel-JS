@@ -18,13 +18,11 @@ var localization = function(lang) {
 		if (~file.indexOf('.json')) {
 			var name = file.replace('.json', '')
 			data[name] = require(obj.routes_path + '/' + file);
-			obj.copy = Object.assign(obj.copy, data);
+			obj.copy = Object.assign(obj.copy, data); // Combile all json file into one object
 		}
 	};
 
 	localization.prototype.get = function(objectPath) {
-		console.log(objectPath);
-		console.log(obj.copy[objectPath]);
 		return Utils.splitNCallObject(obj.copy, objectPath)
 	}
 

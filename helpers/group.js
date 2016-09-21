@@ -1,3 +1,6 @@
+var path = require('path');
+var root = path.resolve();
+
 module.exports = function(router) {
     "use strict";
     var routing = function(options, cb) {

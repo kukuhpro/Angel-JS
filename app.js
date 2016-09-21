@@ -59,7 +59,6 @@ if (env.appEnv == 'production') {
 app.locals.baseURL = env.baseUrl;
 
 
-
 // Set Localization Languange
 app.locals.languange = 'en';
 var lang = new Localization(app.locals.languange);

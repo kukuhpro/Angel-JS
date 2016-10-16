@@ -30,6 +30,7 @@ var RedisStore   = require('connect-redis')(session);
 var fsr          = require('file-stream-rotator');
 var Utils        = require('./helpers/utils');
 var Localization = require('./helpers/localization');
+var RouteName = require('./helpers/routename')();
 
 // var models    = require('./helpers/models');
 var multer       = require('multer'); // v1.0.5
@@ -57,6 +58,9 @@ if (env.appEnv == 'production') {
 
 // Set base URL for assets link
 app.locals.baseURL = env.baseUrl;
+
+// Set function for routing name 
+app.locals.URL = RouteName.helperurl;
 
 
 // Set Localization Languange
@@ -282,7 +286,6 @@ app.use(function(err, req, res, next) {
             });
         }
         else {
-            var backUrl = req.app.locals.PreviousUrl;
             var errors = err.errors;
             for (var i = 0; i < errors.length; i++) {
                 for (var x = 0; x < errors[i].messages.length; x++) {
@@ -290,7 +293,7 @@ app.use(function(err, req, res, next) {
                 }
             }
             req.flash('errors', errors);
-            return res.redirect(backUrl);
+            return res.json(errors);
         }
     }
     else {

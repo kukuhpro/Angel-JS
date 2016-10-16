@@ -1,9 +1,19 @@
 var path = require('path');
 var root = path.resolve();
 
+var routename = require('./routename')();
+
+
 module.exports = function(router) {
     "use strict";
-    var routing = function(options, cb) {
+
+    /**
+     * Generate Grouping Routing, you can add additional options here.
+     * @param  Object   options 
+     * @param  Function cb      [description]
+     * @return Express Router
+     */
+    var group = function(options, cb) {
         options = options || {};
         var method = '',
             callback = '',
@@ -42,6 +52,9 @@ module.exports = function(router) {
                             } else {
                                 router[method](route_link, callback);
                             }
+                            if (o.name !== undefined) {
+                                routename.setRoute(o.name, route_link);
+                            }
                         } else {
                             console.error("route requires that the callback is a Function");
                             process.exit(1);                            
@@ -54,7 +67,40 @@ module.exports = function(router) {
             process.exit(1);
         }
     };
+
+    /**
+     * Generate single routing, additional routing goes here.
+     * @param  Object o 
+     * @return Express Router
+     */
+    var single = function(o) {
+        if (!o.url || typeof o.url !== "string") {
+                    console.error("Group requires that the route url is a string.");
+                    process.exit(1);
+        }
+        var route_link = o.url;
+        if ((o.callback instanceof Function)) {
+            var method = o.method;
+            var callback = o.callback;
+            var middleware = o.middleware;
+            if (middleware && middleware instanceof Function) {
+                router[method](route_link, middleware, callback);
+            } else if (middleware && middleware instanceof Array) {
+                router[method](route_link, middleware, callback);
+            } else {
+                router[method](route_link, callback);
+            }
+            if (o.name !== undefined) {
+                routename.setRoute(o.name, route_link);
+            }
+        } else {
+            console.error("route requires that the callback is a Function");
+            process.exit(1);                            
+        }
+    };
+
     return {
-        routing: routing
+        group: group,
+        single: single
     };
 };

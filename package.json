@@ -80,6 +80,7 @@
     "redis": "^2.5.3",
     "req-flash": "0.0.2",
     "request": "^2.69.0",
+    "socket.io": "^1.5.1",
     "serve-favicon": "~2.3.0",
     "subdomain": "^1.2.0",
     "synchronize": "^0.9.15",

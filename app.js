@@ -26,19 +26,16 @@ var bodyParser   = require('body-parser');
 var subdomain    = require('subdomain');
 var session      = require('express-session');
 var RedisStore   = require('connect-redis')(session);
-// var _         = require("underscore");
 var fsr          = require('file-stream-rotator');
 var Utils        = require('./helpers/utils');
 var Localization = require('./helpers/localization');
 var RouteName = require('./helpers/routename')();
 
-// var models    = require('./helpers/models');
 var multer       = require('multer'); // v1.0.5
 var MulterS3     = require('multer-s3');
 
 var ApiResponse  = require('./app/helpers/ApiResponse');
 var EjsLocal     = require('ejs-locals');
-// var ejs       = require('ejs');
 
 /**
  * Express Init

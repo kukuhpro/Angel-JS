@@ -8,8 +8,9 @@ var controller = require('../../helpers/controller');
 var routing      = require('../../helpers/routing')(router);
 
 routing.single({method: "get", name: 'homesite' ,url: "/", middleware:[], callback: controller('site', 'home', 'index')});
-routing.group({ prefix: "/secure" }, function(route) { 
-	route({method: "get", url: "/", name: 'securesite', middleware:[],callback: controller('site', 'home', 'index')});
+
+routing.group({ prefix: "/secure" }, function(single) { 
+	single({method: "get", url: "/", name: 'securesite', middleware:[], callback: controller('site', 'home', 'index')});
 });
 
 module.exports = router;

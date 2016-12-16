@@ -1,6 +1,7 @@
 var elixir = require('laravel-elixir');
 
 require('laravel-elixir-imagemin');
+require('laravel-elixir-vue-2');
 
 /*
  |--------------------------------------------------------------------------
@@ -22,9 +23,10 @@ elixir.config.images = {
     outputFolder: 'img'
 };
 
-
 elixir(function(mix) {
     mix.styles([
             'style.css',
         ], 'public/style.css');
+    mix.sass('app.scss')
+       .webpack('app.js');
 });

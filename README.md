@@ -1,26 +1,20 @@
 ## Angel 
 Angel is not a framework, is a Express 4 Bootstrap Starter. 
 
-### Setting up Single Tenant Application
-##### 1. Create Configuration JSON file in folder .config/client/subdomain.json
-##### 2. Running migration for new instance subdomain 
+### Installation
+##### 1. running npm install 
+```
+$ npm install
+```
+##### 2. copy Configuration file
    ```
-   $ db-migrate --config ./config/client/subdomain.json -e db up
+   $ cp .env.json.example .env.json
    ```
-##### 3. run on your url http://subdomain.baseurl.com
-
-### Migration
-#### creating migration
+##### 3. run on your app by running 
 ```
-$ npm run migrate create added-table-users
+npm start
 ```
-#### Running Migration
-For single tenancy migration
+##### or
 ```
-$ npm run migrate up
-```
-
-For multi tenancy migration 
-```
-npm run migrate-multi --config ./config/client/domain.json up
+node app.js
 ```

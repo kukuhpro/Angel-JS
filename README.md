@@ -1,5 +1,5 @@
 ## Angel 
-Angel is not a framework, is a Express 4 Bootstrap Starter. 
+Angel is not a framework, is a ExpressJS 4  Starter Kit. 
 
 ### Installation
 ##### 1. running npm install 
@@ -7,9 +7,9 @@ Angel is not a framework, is a Express 4 Bootstrap Starter.
 $ npm install
 ```
 ##### 2. copy Configuration file
-   ```
-   $ cp .env.json.example .env.json
-   ```
+```
+$ cp .env.json.example .env.json
+```
 ##### 3. run on your app by running 
 ```
 npm start

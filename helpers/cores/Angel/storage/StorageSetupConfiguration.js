@@ -28,7 +28,7 @@ class StorageSetupConfiguration {
 
 	storageAwsS3() {
 		return MulterS3({
-	        s3: s3,
+	        s3: this.awsS3,
 	        bucket: this.core.env.AwsS3Bucket,
 	        acl: 'public-read',
 	        metadata: function(req, file, cb) {

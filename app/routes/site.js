@@ -2,10 +2,10 @@
 "use strict";
 module.exports = [
 	{ 
-		get: {url: '/', middleware: [], as: 'homesite', folder: 'new', uses: 'home@index'}
+		get: {url: '/', middleware: ['AuthIsLogin', 'AuthIsAdmin'], as: 'homesite', folder: 'new', uses: 'home@index'}
 	},
 	{
-		get: {url: '/angel-site', middleware: [], as: 'angelsite', folder: 'site', uses: 'home@test3'}
+		get: {url: '/angel-site', middleware: "AuthIsLogin", as: 'angelsite', folder: 'site', uses: 'home@test3'}
 	},
 	{
 		get: {url: "/email", middleware: [], as: 'email.test', folder: 'site', uses: 'home@email'}

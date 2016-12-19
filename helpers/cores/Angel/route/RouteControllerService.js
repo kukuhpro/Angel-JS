@@ -1,11 +1,13 @@
 'use strict';
 
 var Routing = require('./Routing');
+var MiddlewareService = require('../kernel/MiddlewareService');
 var fs      = require('fs');
 
 class RouteControllerService {
 	constructor(core) {
 		this.core = core;
+		this.core = new MiddlewareService(this.core);
 		this.RouteName = require(this.core.root + '/helpers/routename')();
 		this.core = this.core.make('routename', this.RouteName);
 		this.routesPath = this.core.root + '/app/routes';

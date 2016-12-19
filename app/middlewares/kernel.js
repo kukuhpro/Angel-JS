@@ -4,7 +4,8 @@
 class Kernel {
 	constructor() {
 		this.routeMiddleware = {
-			'auth.is.login' => 'middlewares/authislogin'
+			"AuthIsLogin": "middlewares/authislogin",
+			"AuthIsAdmin": "middlewares/authisadmin"
 		};
 	}
 }

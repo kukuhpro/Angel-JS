@@ -85,7 +85,7 @@ class Routing {
 
 		let method = split[1];
 		obj.uses = obj.uses.replace("@" + method, "");
-
+		middleware = this.core.callingmiddleware(middleware);
 		const callingController = (obj.folder) ? obj.folder + '/' + obj.uses : obj.uses;
 		this.core.router[methodName](obj.url, middleware, (req, res, next) => {
 			const requireController = require(this.core.root + '/app/controllers/' + callingController);

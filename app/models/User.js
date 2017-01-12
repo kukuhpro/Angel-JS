@@ -6,8 +6,6 @@ var root = path.resolve();
 
 
 var Eloquent = require(root + '/helpers/cores/Eloquent');
-var City = require('./City');
-
 
 class User extends Eloquent {
 	constructor(SubdomainName) {

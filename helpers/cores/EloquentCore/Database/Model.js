@@ -38,6 +38,25 @@ class Model {
 			return require(modelDir + '/' + SchemaName + '.js')(this.core.SchemaDefault);
 		}
 	}
+
+	injectSchemaOnly(funct) {
+		const SchemaSubdomain = this.core.app.locals[this.subdomainname + '-schema'];
+		if (this.subdomainname) {
+			if (this.SchemaSubdomain) {
+				let config = require(root + '/helpers/env')(this.subdomainname);
+				let dbConfig = config.db;
+	            dbConfig.username = dbConfig.user;
+	            let newSchema = new Schema(dbConfig.driver, dbConfig);
+	            this.core.app.locals[subdomain + '-schema'] = newSchema;
+
+	            return funct(newSchema)
+			} else {
+				return funct(SchemaSubdomain);
+			}
+		} else {
+			return funct(this.core.SchemaDefault);
+		}
+	}
 }
 
 module.exports = Model;

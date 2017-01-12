@@ -4,7 +4,6 @@ var co = require('co');
 
 class Relation {
 	constructor() {
-
 	}
 
 	promise() {
@@ -20,6 +19,12 @@ class Relation {
 			}.bind(this)).then(function(data) {
 				resolve(this.collections.all());
 			}.bind(this));
+		});
+	}
+
+	promisePivotTable() {
+		return new Promise((res, rej) => {
+			
 		});
 	}
 }

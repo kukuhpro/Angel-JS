@@ -13,6 +13,10 @@ class BaseEloquent {
 		this.CoreModel  = new Model(this.SubdomainName);
 	}
 
+	getCoreModel() {
+		return this.CoreModel;
+	}
+
 	get schemaName() {
 		return this.SchemaName;
 	}

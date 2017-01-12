@@ -12,6 +12,7 @@ class BelongsTo extends AbstractRelation {
 		this.ColumnParent = ColumnParent;
 		this.relationName = relationName;
 		this.relations = relations;
+		this.coreModel = this.ClassParent.getCoreModel();
 
 		return this.promise();
 	}

@@ -6,6 +6,7 @@ var co = require('co');
 var BaseEloquent = require('./EloquentCore/BaseEloquent');
 var BelongsTo = require('./EloquentCore/Relations/BelongsTo');
 var HasMany = require('./EloquentCore/Relations/HasMany');
+var BelongsToMany = require('./EloquentCore/Relations/BelongsToMany');
 
 class Eloquent extends BaseEloquent
 {

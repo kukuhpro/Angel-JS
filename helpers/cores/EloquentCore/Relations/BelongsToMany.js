@@ -22,13 +22,9 @@ class BelongsToMany extends AbstractRelation
 		return this.promise();
 	}
 
-	getFilter(allData, i) {
-
-	}
-
 	schemaPivotTable() {
 		return (schema) => {
-			var PivotTable = schema.define('users_products', {
+			var PivotTable = schema.define(this.relationTableName, {
 				id: {type: schema.String},
 				[this.ColumnParent]: {type: schema.String},
 				[this.ColumnChild]: {type: schema.String}
@@ -71,7 +67,7 @@ class BelongsToMany extends AbstractRelation
 					const dataCollection = this.collections.all();
 					const relationName = this.relationName == undefined ? this.ClassParent.schemaName : this.relationName;
 					if (err || data == null || data === undefined) {
-						console.log('ERROR HasMany : ' + err);
+						console.log('ERROR BelongsToMany : ' + err);
 						dataCollection[i][relationName.toLowerCase()] = Array.from([]);
 					} else {
 						dataCollection[i][relationName.toLowerCase()] = data.all();

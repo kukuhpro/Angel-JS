@@ -21,12 +21,6 @@ class Relation {
 			}.bind(this));
 		});
 	}
-
-	promisePivotTable() {
-		return new Promise((res, rej) => {
-			
-		});
-	}
 }
 
 module.exports = Relation;

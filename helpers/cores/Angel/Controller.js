@@ -8,6 +8,10 @@ class Controller {
 	register() {
 		this.url = this.req.app.locals.URL;
 		this.subdomainName = this.req.domain;
+		if (this.req.method == 'GET') {
+			this.req.app.locals.previousurl = this.req.app.locals.currenturl;				
+			this.req.app.locals.currenturl = this.req.route.path;
+		}	
 	}
 
 	/**
@@ -26,10 +30,6 @@ class Controller {
 	}
 	
 	handleExpression(req, res, next, method) {
-		if (req.method == 'GET') {
-			req.app.locals.previousurl = req.app.locals.currenturl;				
-			req.app.locals.currenturl = req.route.path;
-		}	
 
 		this.req = req;
 		this.res = res;

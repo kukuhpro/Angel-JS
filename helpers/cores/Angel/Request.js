@@ -31,6 +31,7 @@ class Request {
 		this.next = next;
 
 		let input = Object.assign(req.body, req.query);
+		this.req.app.locals.input = input;
 
 		this.core.validationservice.make(input, this.rules(), (err, values) => {
 			if (err) {

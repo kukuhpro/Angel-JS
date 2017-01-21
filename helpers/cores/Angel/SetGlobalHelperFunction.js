@@ -42,12 +42,13 @@ class setGlobalHelperFunction {
 
 		this.core.app.use(function(req, res, next) {
 		    this.core.app.locals.protocol = req.protocol;
+		    this.core.app.locals.req = req;
+
 		    var urlText = req.url;
 		    var rt = urlText.match(/\/subdomain\/(\w+)\/.*/);
 		    if (rt !== null) {
 		        this.core.app.locals.subdomain = rt[1];
 		    }
-		    this.core.app.locals.req = req;
 		    next();
 		}.bind(this));
 

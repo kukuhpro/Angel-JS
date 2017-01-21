@@ -66,6 +66,10 @@ class Eloquent extends BaseEloquent
 		const ClassRequire = require(root + '/' + ClassChildDir);
 		return new HasMany(this.collections, new ClassRequire(this.SubdomainName), ColumnParent,  ColumnChild, relationName, relations);
 	}
+
+	belongsToMany() {
+		
+	}
 }
 
 module.exports = Eloquent;

@@ -52,6 +52,7 @@ class Routing {
 					as: obj.methods[i][k].as,
 					middleware: CombineMiddleware,
 					uses: obj.methods[i][k].uses,
+					validation: obj.methods[i][k].validation,
 					folder: folder
 				};
 				this.methodRouter(k, newObjectMethods);
@@ -86,6 +87,11 @@ class Routing {
 		let method = split[1];
 		obj.uses = obj.uses.replace("@" + method, "");
 		middleware = this.core.callingmiddleware(middleware);
+		
+		if (obj.validation) {
+			middleware = this.core.validationservice.handle(middleware, obj.validation);
+		}
+
 		const callingController = (obj.folder) ? obj.folder + '/' + obj.uses : obj.uses;
 		this.core.router[methodName](obj.url, middleware, (req, res, next) => {
 			const requireController = require(this.core.root + '/app/controllers/' + callingController);

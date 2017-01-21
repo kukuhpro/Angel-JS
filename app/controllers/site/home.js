@@ -16,7 +16,6 @@ class home extends controller {
 	}
 
 	index() {
-		console.log('Hello Index');
 		var category = new Category();
 		category.with('product').where().get((err, data) => {
 			if (data == null) {

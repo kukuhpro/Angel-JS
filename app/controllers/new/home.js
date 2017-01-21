@@ -10,6 +10,14 @@ class home extends controller {
 	index() {
 		return this.res.redirect(this.url.route('angelsite'));
 	}
+
+	form() {
+		return this.res.render('form', {});
+	}
+
+	storeForm() {
+		return this.res.json(this.req.body);
+	}
 }
 
 module.exports = home;

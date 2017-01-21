@@ -13,7 +13,17 @@ class setGlobalHelperFunction {
 		let localization = require(this.core.core_path + '/localization');
 		this.localization = new localization(this.core.app.locals.languange);
 		this.core = this.core.make('routename', this.RouteName);
-		
+		this.core = this.core.make('objectourl', function(obj) {
+			var str = "";
+			for (var key in obj) {
+			    if (str != "") {
+			        str += "&";
+			    }
+			    str += key + "=" + obj[key];
+			}
+			return str;
+		});
+
 		return this.init();
 	}
 
@@ -37,6 +47,7 @@ class setGlobalHelperFunction {
 		    if (rt !== null) {
 		        this.core.app.locals.subdomain = rt[1];
 		    }
+		    this.core.app.locals.req = req;
 		    next();
 		}.bind(this));
 

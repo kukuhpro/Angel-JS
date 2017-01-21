@@ -51,7 +51,6 @@
     "express": "~4.13.1",
     "express-flash": "0.0.2",
     "express-session": "^1.13.0",
-    "express-validation": "^0.4.5",
     "expressgroup": "^0.1.4",
     "faker": "latest",
     "file-stream-rotator": "0.0.6",

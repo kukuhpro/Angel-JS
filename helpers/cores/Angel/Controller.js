@@ -20,8 +20,17 @@ class Controller {
 		this.redisclient = core.redisclient;
 		this.cache = core.cache;
 	}
+
+	back() {
+		return this.res.redirect(this.req.app.locals.currenturl);
+	}
 	
 	handleExpression(req, res, next, method) {
+		if (req.method == 'GET') {
+			req.app.locals.previousurl = req.app.locals.currenturl;				
+			req.app.locals.currenturl = req.route.path;
+		}	
+
 		this.req = req;
 		this.res = res;
 		this.next = next;

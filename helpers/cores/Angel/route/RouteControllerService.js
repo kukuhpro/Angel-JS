@@ -2,6 +2,7 @@
 
 var Routing = require('./Routing');
 var MiddlewareService = require('../kernel/MiddlewareService');
+var ValidationService = require('../validation/ValidationService');
 var fs      = require('fs');
 
 class RouteControllerService {
@@ -10,6 +11,7 @@ class RouteControllerService {
 		this.core = new MiddlewareService(this.core);
 		this.RouteName = require(this.core.root + '/helpers/routename')();
 		this.core = this.core.make('routename', this.RouteName);
+		this.core = this.core.make('validationservice', new ValidationService(this.core));
 		this.routesPath = this.core.root + '/app/routes';
 		this.routing = new Routing(this.core);
 		return this.init();

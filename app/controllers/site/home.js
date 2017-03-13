@@ -22,7 +22,7 @@ class home extends controller {
 				console.log('ERROR + ' + err);
 				return this.res.json({});
 			} else {
-				return this.res.json(data.first());
+				return this.res.json(data.all());
 			}
 		});
 	}

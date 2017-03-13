@@ -21,7 +21,7 @@ module.exports = [
 			options: {prefix: '/secure', middleware: [], folder: 'site'},
 			methods: [
 				{
-					get: {url: '/gerimis', middleware: [], as: 'site.home.secure', uses: 'home@test'}
+					get: {url: '/gerimis', middleware: [], as: 'site.home.secure', uses: 'home@index'}
 				}
 			]
 		}

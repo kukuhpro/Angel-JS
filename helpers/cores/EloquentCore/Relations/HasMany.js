@@ -38,7 +38,7 @@ class HasMany extends AbstractRelation {
 				const dataCollection = this.collections.all();
 				const relationName = this.relationName == undefined ? this.ClassParent.schemaName : this.relationName;
 				if (err || data == null || data === undefined) {
-					console.log('ERROR HasMany : ' + err);
+					console.log('Get Nothing from HasMany : ' + err);
 					dataCollection[i][relationName.toLowerCase()] = Array.from([]);
 				} else {
 					dataCollection[i][relationName.toLowerCase()] = data.all();

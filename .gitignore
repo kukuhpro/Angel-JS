@@ -1,4 +1,4 @@
-node_modules
-.env.json
-*.log
-/public/doc
+.env
+node_modules/
+.vscode
+package-lock.json

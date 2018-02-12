@@ -1,12 +1,10 @@
-const Angel = require('./helpers/cores/Angel');
-let angel = new Angel();
+const app = require('./core')
 
-/**
- * Running for setting up all configurations
- */
-angel.run();
+// Setup new class of application
+let application = new app()
 
-/**
- * Running application on server.
- */
-angel.server();
+// setup all application setting with calling run function
+application.run()
+
+// serve this application to http server with port that been defined on .env
+application.serve()

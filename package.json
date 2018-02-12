@@ -1,7 +1,7 @@
 {
   "name": "multi-payment-gateway",
-  "version": "1.0.0",
-  "description": "This is for handle setting up multiple payment gateway.",
+  "version": "2.0.0",
+  "description": "This is for Angel Starter created on top of Express JS Framework.",
   "main": "app.js",
   "scripts": {
     "start": "NODE_ENV=production ENV=production node app.js",

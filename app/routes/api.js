@@ -1,5 +1,4 @@
 module.exports = (Route) => {
-    console.log(Route)
     return [
         Route.GET('/', {
             as: 'home.index',
@@ -16,10 +15,11 @@ module.exports = (Route) => {
             as: 'charge.payment',
             uses: 'site@paymentCharge'
         }),
-        Route.GROUP({'prefix': 'user', 'middleware': []}, (Route) => {
+        Route.GROUP({'prefix': '/user', 'middleware': ['ApiAuthentication']}, (Route) => {
             return [
                 Route.GET('/profile', {
-                    as: 'user.profile'
+                    as: 'user.profile',
+                    uses: 'site@index'
                 })
             ]
         })

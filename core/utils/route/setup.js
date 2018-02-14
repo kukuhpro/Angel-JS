@@ -31,7 +31,6 @@ class setup {
      * @memberOf setup
      */
     process(arrayOfRoutes) {
-        console.log(arrayOfRoutes)
         // create helper for routing name and put in locals application
         this.core.app.locals.URL = this.routename.helperurl
 

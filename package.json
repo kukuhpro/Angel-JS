@@ -1,5 +1,5 @@
 {
-  "name": "multi-payment-gateway",
+  "name": "angel-starter-expressjs",
   "version": "2.0.0",
   "description": "This is for Angel Starter created on top of Express JS Framework.",
   "main": "app.js",

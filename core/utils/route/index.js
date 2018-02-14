@@ -3,6 +3,7 @@ const Setup = require('./setup')
 const fs = require('fs')
 const middlewareSetup = require('../middleware/setup')
 const requestSetup = require('../request/setup')
+const listRoutes = require('./listroutes')
 
 /**
  * @class setupRoute
@@ -57,13 +58,18 @@ class setupRoute {
                 if (~ file.indexOf('.js')) {
                     // get those file route
                     const fileRoute = require(this.core.routePath + file)
+
+                    let objListRoutes = new listRoutes(fileRoute)
+                    objListRoutes.setStartRoutes()
+                    objListRoutes.setEndRoutes()
+
                     // put every route into array of routes
                     this.arrayOfRoutes = this
                         .arrayOfRoutes
-                        .concat(fileRoute(Route))
+                        .concat(objListRoutes.getEndRoutes())
                 }
             }.bind(this))
-
+            
         return this
             .setup
             .process(this.arrayOfRoutes)

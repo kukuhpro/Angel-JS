@@ -23,8 +23,28 @@ let methodRoute ={
 }
 
 const GROUP = function(obj, callback) {
-   const route = callback(methodRoute)
-   return route
+   let routes = callback(methodRoute)
+
+    if (routes instanceof Array) {
+        for (let index = 0; index < routes.length; index++) {
+            let route = routes[index];
+            if (obj.prefix) {
+                route.url = obj.prefix + route.url
+            }
+
+            if (obj.middleware) {
+                if (!route.middleware) {
+                    route.middleware = obj.middleware
+                } else {
+                    route.middleware = route.middleware.concat(obj.middleware)
+                }
+            }
+
+            routes[index] = route
+        }
+    }
+
+   return routes
 }
 
 methodRoute["GROUP"] = GROUP

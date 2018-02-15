@@ -13,6 +13,14 @@ module.exports = (Route) => {
             'as': 'home.index',
             'uses': 'dashboard@home',
             'middleware': ['loginAuthentication']
+        }),
+        Route.GROUP({prefix: '/user'}, (Route) => {
+            return [
+                Route.GET('/kukuh-prabowo', {
+                    as: 'user.profile',
+                    uses: 'auth@form'
+                })
+            ]
         })
     ]
 }
